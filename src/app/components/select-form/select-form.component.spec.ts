@@ -33,15 +33,55 @@ describe('SelectFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('Detectar si calcular funciona con operador de suma con false', ()=>{
-    const mocka ={numero1: 1, numero2: 3};
-    const suma = component.sumaSum = mocka.numero1 + mocka.numero2;
-    const boo = component.sumar=true;
+  it('Detectar si calcular funciona con operador de suma', ()=>{
+    component.numero1=12;
+    component.numero2=12;
+
+    // Cambiar el booleano, true, accion retorna 24 | false: accion retorna un string vacio
+    component.sumar=false;
     const btnEnviar = fixture.debugElement.query(By.css('#btnEnviar'));
     btnEnviar.nativeElement.click();
 
 
-    expect(suma).toEqual(4);
+    expect(component.sumaSum).toEqual("");
   });
 
+  it('Detectar si calcular funciona con operador de multiplicacion', ()=>{
+    component.numero1=12;
+    component.numero2=12;
+
+  // Cambiar el booleano, true, accion retorna 144 | false: accion retorna un string vacio
+    component.multiplicar=true;
+    const btnEnviar = fixture.debugElement.query(By.css('#btnEnviar'));
+    btnEnviar.nativeElement.click();
+
+
+    expect(component.multiMult).toEqual(144);
+  });
+
+  it('Detectar si calcular funciona con operador de restar', ()=>{
+    component.numero1=12;
+    component.numero2=12;
+
+  // Cambiar el booleano, true, accion retorna 0 | false: accion retorna un string vacio
+    component.restar=true;
+    const btnEnviar = fixture.debugElement.query(By.css('#btnEnviar'));
+    btnEnviar.nativeElement.click();
+
+
+    expect(component.restaRes).toEqual(0);
+  });
+
+  it('Detectar si calcular funciona con operador de Dividir', ()=>{
+    component.numero1=12;
+    component.numero2=12;
+
+  // Cambiar el booleano, true, accion retorna 1 | false: accion retorna un string vacio
+    component.dividir=true;
+    const btnEnviar = fixture.debugElement.query(By.css('#btnEnviar'));
+    btnEnviar.nativeElement.click();
+
+
+    expect(component.divdiDiv).toEqual(1);
+  });
 });
