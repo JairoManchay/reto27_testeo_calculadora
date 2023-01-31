@@ -1,0 +1,53 @@
+
+
+<section class="container">
+  <section class="row col-8 bg-secondary d-flex justify-content-center mt-3" style="margin: 0 auto;">
+
+    <h2 class="text-center">CALCULADORA</h2>
+    <div class="full d-flex flex-column">
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese un valor A</mat-label>
+            <input matInput [(ngModel)]="numero1" required type="number">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese un valor B</mat-label>
+            <input matInput [(ngModel)]="numero2" required type="number">
+
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-slide-toggle name="sumar" [(ngModel)]="sumar">SUMAR</mat-slide-toggle>
+    </div>
+    <div>
+        <mat-slide-toggle name="restar" [(ngModel)]="restar">RESTAR</mat-slide-toggle>
+    </div>
+    <div>
+        <mat-slide-toggle name="multiplicar" [(ngModel)]="multiplicar">MULTIPLICAR</mat-slide-toggle>
+    </div>
+    <div>
+        <mat-slide-toggle name="dividir" [(ngModel)]="dividir">DIVIDIR</mat-slide-toggle>
+    </div>
+
+
+    <button mat-raised-button color="dark" (click)="Enviar()" id="btnEnviar" class="full">CALCULAR</button>
+
+    <div class="respuesta" *ngIf="sumaSum>0">
+        {{sumaSum}}
+    </div>
+    <div class="respuesta" *ngIf="restaRes">
+        {{restaRes}}
+    </div>
+    <div class="respuesta" *ngIf="multiMult">
+        {{multiMult}}
+    </div>
+    <div class="respuesta" *ngIf="divdiDiv>0">
+      {{divdiDiv}}
+    </div>
+
+
+    <div class="respuesta">{{respuesta}}</div>
+  </section>
+</section>
